@@ -1,0 +1,29 @@
+.post {
+  &.card {
+    width: 18rem;
+    height: 26rem;
+  }
+
+  .card-header {
+    height: 5rem;
+  }
+
+  .card-body {
+    height: 15rem;
+  }
+
+  .card-footer {
+  height: 6rem;
+  padding-top: 0.3rem;
+  p {
+      margin-bottom: 0;
+    }
+  nav {
+      padding-top: 0.2rem; 
+    }
+  }
+}
+
+.votes {
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
+}
