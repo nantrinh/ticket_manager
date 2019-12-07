@@ -1,5 +1,24 @@
+<% obj ||= nil %>
+<% can_edit ||= nil %>
+
+<% if obj.class == Project %>
+  <% name = obj.name %>
+  <% edit_url = edit_project_path(obj.id)%>
+  <% delete_url = project_path(obj.id, method: :delete)%>
+  <% can_edit = true %>
+<% end %>
+
 <%= render 'shared/nav' %>
 <section class='jumbotron text-center'>
   <h1 class='jumbotron-heading'><%= title %></h1>
+
+  <% if obj.class == Project %>
+    <p><%= obj.description %></p>
+  <% end %>
+
+  <% if can_edit %>
+    <%= link_to 'Edit', edit_url %>
+    <%= link_to 'Delete', delete_url %>
+  <% end %>
 </section>
 <%= render 'shared/flash' %>
