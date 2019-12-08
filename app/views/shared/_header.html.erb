@@ -4,7 +4,7 @@
 <% if obj.class == Project %>
   <% name = obj.name %>
   <% edit_url = edit_project_path(obj.id)%>
-  <% delete_url = project_path(obj.id, method: :delete)%>
+  <% delete_url = project_path(obj.id)%>
   <% can_edit = true %>
 <% end %>
 
@@ -18,7 +18,7 @@
 
   <% if can_edit %>
     <%= link_to 'Edit', edit_url %>
-    <%= link_to 'Delete', delete_url %>
+    <%= link_to 'Delete', delete_url, method: :delete, data: {confirm: 'Are you sure?'} %>
   <% end %>
 </section>
 <%= render 'shared/flash' %>
