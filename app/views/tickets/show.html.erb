@@ -1,0 +1,21 @@
+<%= render 'shared/header', title: @ticket.name, obj: @ticket %>
+
+<section class='container justify-content-center'>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th scope='col'>Status</th>
+        <th scope='col'>Creator</th>
+        <th scope='col'>Assignee</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr>
+        <th scope='row'><%= @ticket.status.capitalize %></th>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</section>

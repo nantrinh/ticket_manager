@@ -6,6 +6,11 @@
   <% edit_url = edit_project_path(obj.id)%>
   <% delete_url = project_path(obj.id)%>
   <% can_edit = true %>
+<% elsif obj.class == Ticket %>
+  <% name = obj.name %>
+  <% edit_url = edit_ticket_path(obj.id)%>
+  <% delete_url = ticket_path(obj.id)%>
+  <% can_edit = true %>
 <% end %>
 
 <%= render 'shared/nav' %>
@@ -14,6 +19,8 @@
 
   <% if obj.class == Project %>
     <p><%= obj.description %></p>
+  <% elsif obj.class == Ticket %>
+    <p><%= obj.body %></p>
   <% end %>
 
   <% if can_edit %>
