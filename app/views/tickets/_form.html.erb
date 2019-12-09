@@ -1,0 +1,25 @@
+<%= render 'shared/errors', obj: @ticket %>
+<section class='container'>
+  <%= form_with(model: @ticket, local: true, html: {autocomplete: 'off'}) do |f| %>
+    <div class='form-group w-50'>
+      <%= f.label :project %>
+      <%= f.select(:project_id, Project.all.map {|x| [x.name.capitalize, x.id]}, {}, {class: 'custom-select'}) %>
+    </div>
+    <div class='form-group'>
+      <%= f.label :name%>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class='form-group'>
+      <%= f.label :body%>
+      <%= f.text_area :body, rows: 8, class: 'form-control' %>
+    </div>
+    <div class='form-group w-50'>
+      <%= f.label :status %>
+      <% statuses = %w(new blocked in_progress fixed) %>
+      <%= f.select(:status, statuses.map {|x| [x.capitalize.gsub('_', ' '), x]}, {}, {class: 'custom-select'}) %>
+    </div>
+    <%= f.submit(options={class: "btn btn-outline-primary mt-3"}) %>
+  <% end %>
+
+  <%= render 'shared/back' %>
+</section>
