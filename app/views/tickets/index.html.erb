@@ -5,6 +5,7 @@
     <thead>
       <tr>
         <th scope='col'>Name</th>
+        <th scope='col'>Project</th>
         <th scope='col'>Assignee</th>
         <th scope='col'>Status</th>
         <th scope='col'>Tags</th>
@@ -16,8 +17,9 @@
       <% @tickets.each do |ticket| %>
         <tr>
           <th scope='row'><%= link_to ticket.name, ticket_path(ticket.id) %></th>
+          <th><%= link_to ticket.project.name, project_path(ticket.project.id) %></th>
           <td></td>
-          <td><%= ticket.status.capitalize %></td>
+          <td><%= titleize(ticket.status) %></td>
           <td></td>
           <td>
             <%= link_to 'Edit', edit_ticket_path(ticket.id) %> 

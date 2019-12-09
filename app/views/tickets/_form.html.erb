@@ -16,7 +16,7 @@
     <div class='form-group w-50'>
       <%= f.label :status %>
       <% statuses = %w(new blocked in_progress fixed) %>
-      <%= f.select(:status, statuses.map {|x| [x.capitalize.gsub('_', ' '), x]}, {}, {class: 'custom-select'}) %>
+      <%= f.select(:status, statuses.map {|x| [titleize(x), x]}, {}, {class: 'custom-select'}) %>
     </div>
     <%= f.submit(options={class: "btn btn-outline-primary mt-3"}) %>
   <% end %>
